@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lenguaje de programación Despacito</title>
+    <description>Lenguaje de programación Despacito
+</description>
+    <link>http://despacito-lang.github.io/</link>
+    <atom:link href="http://despacito-lang.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 28 Oct 2019 15:03:38 +0000</pubDate>
+    <lastBuildDate>Mon, 28 Oct 2019 15:03:38 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Hola, mundo!</title>
+        <description>&lt;p&gt;&lt;strong&gt;Despacito&lt;/strong&gt; es un lenguaje de programación basado en la cultura latinoamericana, de código libre y &lt;em&gt;open source&lt;/em&gt; (licencia BSD). &lt;strong&gt;Despacito&lt;/strong&gt; es &lt;a href=&quot;https://es.wikipedia.org/wiki/Turing_completo&quot;&gt;turing-completo&lt;/a&gt;, compilado, estáticamente tipado, y tiene soporte de arreglos, funciones y recursión.&lt;/p&gt;
+
+&lt;p&gt;El compilador de &lt;strong&gt;Despacito&lt;/strong&gt; se encuentra implementado en &lt;code class=&quot;highlighter-rouge&quot;&gt;Python 3&lt;/code&gt; en poco más de 1000 líneas de código, sin utilizar librerías externas ni expresiones regulares. El código fuente está en GitHub:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Despacito-Lang/Despacito&quot;&gt;https://github.com/Despacito-Lang/Despacito&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;El código fuente de Despacito es copyright (c) 2019, Alejandro Santos.&lt;/p&gt;
+
+&lt;h2 id=&quot;introducción&quot;&gt;Introducción&lt;/h2&gt;
+
+&lt;p&gt;La mejor forma de introducir el lenguaje es con el clásico programa &lt;code class=&quot;highlighter-rouge&quot;&gt;Hola, Mundo!&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay Esto es un comentario!
+
+despacito ProgramaHolaMundo
+bailar
+    respirar
+    firmar (&quot;Hola, mundo!\n&quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Similar al lenguaje Python, la identación de código es parte del lenguaje. Un bloque de código comienza con &lt;code class=&quot;highlighter-rouge&quot;&gt;bailar&lt;/code&gt; y debe tener al menos una sentencia. La sentencia &lt;code class=&quot;highlighter-rouge&quot;&gt;respirar&lt;/code&gt; no hace nada, y es equivalente al &lt;code class=&quot;highlighter-rouge&quot;&gt;pass&lt;/code&gt; de Python.&lt;/p&gt;
+
+&lt;p&gt;El lenguaje Despacito es compilado y estáticamente tipado, y por el momento el compilador de referencia produce código &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;. Entonces, para ejecutar programas Despacito hace falta un compilador del lenguaje &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;. Por ejemplo con &lt;code class=&quot;highlighter-rouge&quot;&gt;gcc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py ejemplos/helloworld.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; hello.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Wextra&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; hello hello.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./hello 
+Hola, mundo!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;acuerdate-variables&quot;&gt;acuerdate (variables)&lt;/h3&gt;
+
+&lt;p&gt;Las variables hace falta declararlas con un tipo de datos adecuado mediante un bloque de &lt;code class=&quot;highlighter-rouge&quot;&gt;acuerdate&lt;/code&gt;, el nombre de la variable, el uso de la palabra clave &lt;code class=&quot;highlighter-rouge&quot;&gt;conmigo&lt;/code&gt; seguido del tipo de datos. El tipo de datos &lt;code class=&quot;highlighter-rouge&quot;&gt;entero&lt;/code&gt; es un alias de un &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt; en C, pero tambien es posible usar los mismos del lenguaje &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;. Al momento, los nombres de operadores, variables, tipos de datos y nombres de funciones no permiten acentos.&lt;/p&gt;
+
+&lt;p&gt;La asignación de valores se hace con el operador &lt;code class=&quot;highlighter-rouge&quot;&gt;es&lt;/code&gt;, y los operadores aritméticos son: &lt;code class=&quot;highlighter-rouge&quot;&gt;mas&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;menos&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;por&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt; y &lt;code class=&quot;highlighter-rouge&quot;&gt;mod&lt;/code&gt;, y siguen las reglas clásicas de precedencia.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay programa uno.despacito
+
+despacito ProgramaUno
+acuerdate
+    x conmigo entero
+
+bailar
+    x es 10 mas 5 por (1 mas 1)
+    firmar (&quot;El valor de x es %d\n&quot;, x)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;uno.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py uno.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; uno.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; uno uno.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./uno 
+El valor de x es 20&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;arreglos&quot;&gt;arreglos&lt;/h3&gt;
+
+&lt;p&gt;Para crear un arreglo hace falta indicar su tamaño mediante el uso de paréntesis. Los arreglos, al igual que en el lenguaje &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;, comienzan con el índice cero.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay programa dos.despacito
+
+despacito ProgramaDos
+acuerdate
+    x conmigo entero(10)
+
+bailar
+    x(3) es 1234
+    firmar (&quot;El valor de x(1) es %d, y x(3) es %d\n&quot;, x(1), x(3))&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;dos.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py dos.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; dos.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; dos dos.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./dos
+El valor de x&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; es 0, y x&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; es 1234&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;quiero&quot;&gt;quiero&lt;/h3&gt;
+
+&lt;p&gt;La estructura de selección (o sea, el &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; de Python) se hace con &lt;code class=&quot;highlighter-rouge&quot;&gt;quiero&lt;/code&gt;, seguido de la condición, seguido del código identado. Cuando la condición es verdadera, el bloque se ejecuta. Usando &lt;code class=&quot;highlighter-rouge&quot;&gt;sino&lt;/code&gt; es posible indicar el caso contrario, ya sea con una expresión, o sin ninguna expresión. Los operadores condicionales son: &lt;code class=&quot;highlighter-rouge&quot;&gt;igual&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;mayor&lt;/code&gt;, y &lt;code class=&quot;highlighter-rouge&quot;&gt;menor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay programa tres.despacito
+
+despacito ProgramaTres
+acuerdate
+    i conmigo entero
+
+bailar
+    i es 2020
+    quiero (i mod 3) igual 0
+        firmar (&quot;i es divisible por 3\n&quot;)
+    sino (i mod 2) igual 0 
+        firmar (&quot;i es divisible por 2\n&quot;)
+    sino
+        firmar (&quot;i es: %d\n&quot;, i)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;tres.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py tres.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tres.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; tres tres.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./tres
+i es divisible por 2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;pasito&quot;&gt;pasito&lt;/h3&gt;
+
+&lt;p&gt;Para repetir un bloque de código una cantidad limitada de veces se puede usar la estructura &lt;code class=&quot;highlighter-rouge&quot;&gt;pasito&lt;/code&gt; con una expresión de tipo entero. La expresión se evalúa una sola vez al comenzar el bloque:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay programa cuatro.despacito
+
+despacito ProgramaCuatro
+bailar
+    pasito 10
+        firmar (&quot;hola, &quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;cuatro.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py cuatro.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; cuatro.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; cuatro cuatro.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./cuatro
+hola, hola, hola, hola, hola, hola, hola, hola, hola, hola, &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;repetir&quot;&gt;repetir&lt;/h3&gt;
+
+&lt;p&gt;Para repetir un bloque de código mientras una condición sea verdadera se puede usar la estructura &lt;code class=&quot;highlighter-rouge&quot;&gt;mientras&lt;/code&gt; con una expresion de tipo booleana. La expresión se evalúa siguiendo las reglas normales de un &lt;code class=&quot;highlighter-rouge&quot;&gt;while&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay programa cinco.despacito
+
+despacito ProgramaCinco
+acuerdate
+    i conmigo entero
+bailar
+    i es 0
+    mientras i menor 10
+        firmar (&quot;hola %d, &quot;, i)
+        i es i mas 1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;cinco.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py cinco.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; cinco.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; cinco cinco.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./cinco 
+hola 0, hola 1, hola 2, hola 3, hola 4, hola 5, hola 6, hola 7, hola 8, hola 9, &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;mirada-funciones&quot;&gt;mirada (funciones)&lt;/h3&gt;
+
+&lt;p&gt;Para modularizar el código se hace con la palabra clave &lt;code class=&quot;highlighter-rouge&quot;&gt;mirada&lt;/code&gt;, seguido del tipo de datos de retorno de la funcion y opcionalmente los parámetros de la mirada separados por comas:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-despacito&quot; data-lang=&quot;despacito&quot;&gt;ay Implementacion de FACTORIAL
+
+despacito Factorial
+
+mirada entero fact x conmigo entero
+bailar
+    quiero x mayor 1
+        fact es x por fact(x menos 1)
+    sino
+        fact es 1
+
+bailar
+    firmar (&quot;%d\n&quot;, fact(6))&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;La salida del programa &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial.despacito&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./despacito.py factorial.despacito &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; factorial.c
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Wextra&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; factorial factorial.c 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./factorial 
+720&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Mon, 28 Oct 2019 12:36:39 +0000</pubDate>
+        <link>http://despacito-lang.github.io/updates/2019/10/28/hola-mundo.html</link>
+        <guid isPermaLink="true">http://despacito-lang.github.io/updates/2019/10/28/hola-mundo.html</guid>
+        
+        
+        <category>updates</category>
+        
+      </item>
+    
+  </channel>
+</rss>
